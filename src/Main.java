@@ -97,5 +97,6 @@ public class Main {
         System.out.print("\nTotal amount paid will be: $"+decimalFormat.format(studentpayments()*12*getOT()));
         System.out.print("\nTotal Interest paid will be: $"+decimalFormat.format((studentpayments()*12*getOT())-getPV()));
         anotherone();
+        //testing git commit
     }
 }
