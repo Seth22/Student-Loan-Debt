@@ -5,7 +5,10 @@ Input the student debt
 Input the interest rate
 Input the years it will take to pay off the loan
 
-Get monthly payments
-Get yearly payments
-Get total amount paid 
-Get total interest paid
+Output monthly payments
+
+Output yearly payments
+
+Output total amount paid 
+
+Output total interest paid
