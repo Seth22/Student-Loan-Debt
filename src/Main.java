@@ -3,6 +3,7 @@ import java.util.InputMismatchException;
 import java.text.DecimalFormat;
 
 public class Main {
+
     private static double PV; private static double I; private static double T; private static double OT;
     static void setpv(double newpv) {
         PV = newpv;
@@ -29,53 +30,121 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("Welcome to student debt calculator! Hit any key to use default values when prompted");
-        StudentDebt();
+        studentDebt();
     }
-    public static void StudentDebt() {
+    public static void studentDebt() {
         try {
             System.out.print("Type the amount College will cost you:");
             Scanner UserDebt = new Scanner(System.in);
             setpv(UserDebt.nextDouble());
-            studentinterest();
+            studentInterest();
         }
         catch(InputMismatchException ex) {
             System.out.println("Setting Student debt Debt to $80,000");
             setpv(80000);
-            studentinterest();
+            studentInterest();
         }
     }
-    public static void studentinterest() {
+    public static void studentInterest() {
         try {
             System.out.print("Type in interest rate as a percent(APY):");
             Scanner interestrate = new Scanner(System.in);
             setI(interestrate.nextDouble());
-            studentyears();
+            studentYears();
         } catch (InputMismatchException ex) {
             System.out.println("Setting Interest rate to 4.99% APY");
             setI(4.99);
-            studentyears();
+            studentYears();
         }
     }
-    public static void studentyears(){
+    public static void studentYears(){
         try {
             System.out.print("Type the number of years you wish to be debt free by:");
             Scanner years = new Scanner(System.in);
             setT(years.nextDouble());
-            printstudent();
+            printStudent();
         }
         catch(InputMismatchException ex) {
             System.out.println("Setting debt free time to 30 years");
             setT(30);
-            printstudent();
+            printStudent();
         }
     }
-    public static void anotherone() {
+    public static void seeYears() {
+        try {
+            System.out.println("\nWould you like to see how this debt based on the years taken to pay it off?");
+            Scanner input = new Scanner(System.in);
+            boolean userInput = input.nextBoolean();
+            if (userInput) {
+                System.out.println();
+                loopMonthly();
+                System.out.println();
+                loopYearly();
+                System.out.println();
+                loopTotalPaid();
+                System.out.println();
+                loopTotalInterestPaid();
+                anotherOne();
+            }
+            else {
+                anotherOne();
+            }
+        }
+        catch(InputMismatchException ex) {
+            anotherOne();
+        }
+    }
+    public static void loopMonthly() {
+        int x = 5;
+        while (x < 70) {
+            DecimalFormat decimalFormat = new DecimalFormat("#.##");
+            decimalFormat.setGroupingUsed(true);
+            decimalFormat.setGroupingSize(3);
+            setT(x);
+            System.out.println("When you take "+x+" years "+"Your monthly payments will be: $"+decimalFormat.format(studentPayments()));
+            x = x+5;
+        }
+    }
+    public static void loopYearly() {
+        int x = 5;
+        while (x < 70) {
+            DecimalFormat decimalFormat = new DecimalFormat("#.##");
+            decimalFormat.setGroupingUsed(true);
+            decimalFormat.setGroupingSize(3);
+            setT(x);
+            System.out.println("When you take "+x+" years "+"Your yearly payments will be: $"+decimalFormat.format(studentPayments()*12));
+            x = x+5;
+        }
+    }
+    public static void loopTotalPaid() {
+        int x = 5;
+        while (x < 70) {
+            DecimalFormat decimalFormat = new DecimalFormat("#.##");
+            decimalFormat.setGroupingUsed(true);
+            decimalFormat.setGroupingSize(3);
+            setT(x);
+            System.out.println("When you take "+x+" years "+"The total paid will be: $"+decimalFormat.format(studentPayments()*12*getOT()));
+            x = x+5;
+        }
+    }
+    public static void loopTotalInterestPaid() {
+        int x = 5;
+        while (x < 70) {
+            DecimalFormat decimalFormat = new DecimalFormat("#.##");
+            decimalFormat.setGroupingUsed(true);
+            decimalFormat.setGroupingSize(3);
+            setT(x);
+            System.out.println("When you take "+x+" years "+"The total interest paid will be: $"+decimalFormat.format((studentPayments()*12*getOT())-getPV()));
+            x = x+5;
+        }
+    }
+    public static void anotherOne() {
         try {
             System.out.println("\nWould you like to calculate more loans?(True or False)");
             Scanner input = new Scanner(System.in);
             boolean UserInput = input.nextBoolean();
             if (UserInput) {
-                StudentDebt();
+                studentDebt();
             }
             else {
                 System.out.println("See you next time!");
@@ -85,18 +154,20 @@ public class Main {
             System.out.println("See you next time!");
         }
     }
-    public static Double studentpayments() {
+    public static Double studentPayments() {
         return getPV()*((getI()*Math.pow((1+getI()),getT()))/(Math.pow((1+getI()),getT())-1));
     }
-    public static void printstudent() {
+    public static void printStudent() {
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         decimalFormat.setGroupingUsed(true);
         decimalFormat.setGroupingSize(3);
-        System.out.print("Your monthly payments will be: $"+decimalFormat.format(studentpayments()));
-        System.out.print("\nYour yearly payments will be: $"+decimalFormat.format(studentpayments()*12));
-        System.out.print("\nTotal amount paid will be: $"+decimalFormat.format(studentpayments()*12*getOT()));
-        System.out.print("\nTotal Interest paid will be: $"+decimalFormat.format((studentpayments()*12*getOT())-getPV()));
-        anotherone();
+        System.out.print("Your monthly payments will be: $"+decimalFormat.format(studentPayments()));
+        System.out.print("\nYour yearly payments will be: $"+decimalFormat.format(studentPayments()*12));
+        System.out.print("\nTotal amount paid will be: $"+decimalFormat.format(studentPayments()*12*getOT()));
+        System.out.print("\nTotal Interest paid will be: $"+decimalFormat.format((studentPayments()*12*getOT())-getPV()));
+        seeYears();
     }
 }
 //Created by Seth/SJB :D
+
+//Documention? how about you document the number of bitches you have(null value)
