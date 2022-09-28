@@ -14,5 +14,7 @@ Output total amount paid
 Output total interest paid
 
 Please note I am still learning Git so you can ignore everything not in the src directory thank you :D
+
 *unless you know what the production mean I only know code make cool thing in terminal happen*
-*API? I barely know her* 
+
+*API? I prefer APY* 
