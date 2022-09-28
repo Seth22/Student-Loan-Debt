@@ -19,4 +19,6 @@ Please note I am still learning Git so you can ignore everything not in the src 
 
 *unless you know what the production mean I only know code make cool thing in terminal happen*
 
-*API? I prefer APY* 
+*API? I prefer APY,*
+
+*Wrappers? Personally I like Joey Bada$$ although Ant sounds cool ill check him out*
