@@ -141,5 +141,4 @@ public class Main {
         seeYears();
     }
 }
-//Created by Seth/SJB :D
-//Documention? how about you document the number of bitches you have(null value)
+//Created by SJB/Seth :D
