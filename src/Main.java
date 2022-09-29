@@ -72,19 +72,12 @@ public class Main {
     }
     public static void seeYears() {
         try {
-            System.out.println("\nWould you like to see how this debt based on the years taken to pay it off?");
+            System.out.println("\nWould you like to see how this debt based on the years taken to pay it off?(True or false");
             Scanner input = new Scanner(System.in);
             boolean userInput = input.nextBoolean();
             if (userInput) {
                 System.out.println();
-                loopMonthly();
-                System.out.println();
-                loopYearly();
-                System.out.println();
-                loopTotalPaid();
-                System.out.println();
-                loopTotalInterestPaid();
-                anotherOne();
+                loopYears();
             }
             else {
                 anotherOne();
@@ -94,48 +87,28 @@ public class Main {
             anotherOne();
         }
     }
-    public static void loopMonthly() {
-        int x = 5;
-        while (x < 70) {
-            DecimalFormat decimalFormat = new DecimalFormat("#.##");
-            decimalFormat.setGroupingUsed(true);
-            decimalFormat.setGroupingSize(3);
+    public static void loopYears() {
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        decimalFormat.setGroupingUsed(true);
+        decimalFormat.setGroupingSize(3);
+        for (int x=5;x < 70;x+=5) {
             setT(x);
             System.out.println("When you take "+x+" years "+"Your monthly payments will be: $"+decimalFormat.format(studentPayments()));
-            x = x+5;
         }
-    }
-    public static void loopYearly() {
-        int x = 5;
-        while (x < 70) {
-            DecimalFormat decimalFormat = new DecimalFormat("#.##");
-            decimalFormat.setGroupingUsed(true);
-            decimalFormat.setGroupingSize(3);
+        System.out.println();
+        for (int x=5;x < 70;x+=5) {
             setT(x);
             System.out.println("When you take "+x+" years "+"Your yearly payments will be: $"+decimalFormat.format(studentPayments()*12));
-            x = x+5;
         }
-    }
-    public static void loopTotalPaid() {
-        int x = 5;
-        while (x < 70) {
-            DecimalFormat decimalFormat = new DecimalFormat("#.##");
-            decimalFormat.setGroupingUsed(true);
-            decimalFormat.setGroupingSize(3);
+        System.out.println();
+        for (int x=5;x < 70;x+=5) {
             setT(x);
             System.out.println("When you take "+x+" years "+"The total paid will be: $"+decimalFormat.format(studentPayments()*12*getOT()));
-            x = x+5;
         }
-    }
-    public static void loopTotalInterestPaid() {
-        int x = 5;
-        while (x < 70) {
-            DecimalFormat decimalFormat = new DecimalFormat("#.##");
-            decimalFormat.setGroupingUsed(true);
-            decimalFormat.setGroupingSize(3);
+        System.out.println();
+        for (int x=5;x < 70;x+=5) {
             setT(x);
             System.out.println("When you take "+x+" years "+"The total interest paid will be: $"+decimalFormat.format((studentPayments()*12*getOT())-getPV()));
-            x = x+5;
         }
     }
     public static void anotherOne() {
@@ -169,5 +142,4 @@ public class Main {
     }
 }
 //Created by Seth/SJB :D
-
 //Documention? how about you document the number of bitches you have(null value)
