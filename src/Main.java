@@ -3,7 +3,6 @@ import java.util.InputMismatchException;
 import java.text.DecimalFormat;
 
 public class Main {
-
     private static double PV; private static double I; private static double T; private static double OT;
     static void setpv(double newpv) {
         PV = newpv;
@@ -77,7 +76,28 @@ public class Main {
             boolean userInput = input.nextBoolean();
             if (userInput) {
                 System.out.println();
-                loopYears();
+                DecimalFormat decimalFormat = new DecimalFormat("#.##");
+                decimalFormat.setGroupingUsed(true);
+                decimalFormat.setGroupingSize(3);
+                for (int x=5;x < 70;x+=5) {
+                    setT(x);
+                    System.out.println("When you take "+x+" years "+"Your monthly payments will be: $"+decimalFormat.format(studentPayments()));
+                }
+                System.out.println();
+                for (int x=5;x < 70;x+=5) {
+                    setT(x);
+                    System.out.println("When you take "+x+" years "+"Your yearly payments will be: $"+decimalFormat.format(studentPayments()*12));
+                }
+                System.out.println();
+                for (int x=5;x < 70;x+=5) {
+                    setT(x);
+                    System.out.println("When you take "+x+" years "+"The total paid will be: $"+decimalFormat.format(studentPayments()*12*getOT()));
+                }
+                System.out.println();
+                for (int x=5;x < 70;x+=5) {
+                    setT(x);
+                    System.out.println("When you take "+x+" years "+"The total interest paid will be: $"+decimalFormat.format((studentPayments()*12*getOT())-getPV()));
+                }
             }
             else {
                 anotherOne();
@@ -85,30 +105,6 @@ public class Main {
         }
         catch(InputMismatchException ex) {
             anotherOne();
-        }
-    }
-    public static void loopYears() {
-        DecimalFormat decimalFormat = new DecimalFormat("#.##");
-        decimalFormat.setGroupingUsed(true);
-        decimalFormat.setGroupingSize(3);
-        for (int x=5;x < 70;x+=5) {
-            setT(x);
-            System.out.println("When you take "+x+" years "+"Your monthly payments will be: $"+decimalFormat.format(studentPayments()));
-        }
-        System.out.println();
-        for (int x=5;x < 70;x+=5) {
-            setT(x);
-            System.out.println("When you take "+x+" years "+"Your yearly payments will be: $"+decimalFormat.format(studentPayments()*12));
-        }
-        System.out.println();
-        for (int x=5;x < 70;x+=5) {
-            setT(x);
-            System.out.println("When you take "+x+" years "+"The total paid will be: $"+decimalFormat.format(studentPayments()*12*getOT()));
-        }
-        System.out.println();
-        for (int x=5;x < 70;x+=5) {
-            setT(x);
-            System.out.println("When you take "+x+" years "+"The total interest paid will be: $"+decimalFormat.format((studentPayments()*12*getOT())-getPV()));
         }
     }
     public static void anotherOne() {
