@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 
 public class Main {
     private static double PV; private static double I; private static double T; private static double OT;
-    static void setpv(double newpv) {
+    static void setPV(double newpv) {
         PV = newpv;
     }
     static double getPV() {
@@ -34,12 +34,12 @@ public class Main {
         try {
             System.out.print("Type the amount College will cost you:");
             Scanner UserDebt = new Scanner(System.in);
-            setpv(UserDebt.nextDouble());
+            setPV(UserDebt.nextDouble());
             studentInterest();
         }
         catch(InputMismatchException ex) {
             System.out.println("Setting Student debt Debt to $80,000");
-            setpv(80000);
+            setPV(80000);
             studentInterest();
         }
     }
