@@ -26,7 +26,6 @@ public class Main {
     static double getOT() {
         return OT;
     }
-
     public static void main(String[] args) {
         System.out.println("Welcome to student debt calculator! Hit any key to use default values when prompted");
         studentDebt();
@@ -71,7 +70,7 @@ public class Main {
     }
     public static void seeYears() {
         try {
-            System.out.println("\nWould you like to see how this debt based on the years taken to pay it off?(True or false");
+            System.out.println("\nWould you like to see how this debt based on the years taken to pay it off?(True or false)");
             Scanner input = new Scanner(System.in);
             boolean userInput = input.nextBoolean();
             if (userInput) {
@@ -79,25 +78,26 @@ public class Main {
                 DecimalFormat decimalFormat = new DecimalFormat("#.##");
                 decimalFormat.setGroupingUsed(true);
                 decimalFormat.setGroupingSize(3);
-                for (int x=5;x < 70;x+=5) {
+                for (int x=5;x <= 50;x+=5) {
                     setT(x);
                     System.out.println("When you take "+x+" years "+"Your monthly payments will be: $"+decimalFormat.format(studentPayments()));
                 }
                 System.out.println();
-                for (int x=5;x < 70;x+=5) {
+                for (int x=5;x <= 50;x+=5) {
                     setT(x);
                     System.out.println("When you take "+x+" years "+"Your yearly payments will be: $"+decimalFormat.format(studentPayments()*12));
                 }
                 System.out.println();
-                for (int x=5;x < 70;x+=5) {
+                for (int x=5;x <= 50;x+=5) {
                     setT(x);
                     System.out.println("When you take "+x+" years "+"The total paid will be: $"+decimalFormat.format(studentPayments()*12*getOT()));
                 }
                 System.out.println();
-                for (int x=5;x < 70;x+=5) {
+                for (int x=5;x <= 50;x+=5) {
                     setT(x);
                     System.out.println("When you take "+x+" years "+"The total interest paid will be: $"+decimalFormat.format((studentPayments()*12*getOT())-getPV()));
                 }
+                anotherOne();
             }
             else {
                 anotherOne();
