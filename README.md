@@ -40,4 +40,5 @@
 *May work better in google sheets, I created it in Google sheets to calculate my own college cost*
 
 *Hopefully this will help you please enjoy :D -Seth/SJB* 
+
 *Created and tested in IntelliJ IDE other IDEs may require slight tweaks*
