@@ -1,11 +1,13 @@
-# Student-Loan-Debt
-A simple Java Program to Calculate student loan debt
+# Student-Loan-Debt - A simple Java Program to Calculate student loan debt
 
+##Inputs 
 1.Input the student debt 
 
 2.Input the interest rate
 
 3.Input the years it will take to pay off the loan
+
+##Outputs
 
 1.Output monthly payments
 
