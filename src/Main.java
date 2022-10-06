@@ -6,10 +6,10 @@ import java.text.DecimalFormat;
 
 public class Main {
     private static double PV; private static double I; private static double T; private static double OT;
-    static void setPV(double newpv) {
+    static void setP(double newpv) {
         PV = newpv;
     }
-    static double getPV() {
+    static double getP() {
         return PV;
     }
     static void setI(double newI) {
@@ -39,13 +39,13 @@ public class Main {
         try {
             System.out.print("Type the amount College will cost you:");
             Scanner UserDebt = new Scanner(System.in);
-            setPV(UserDebt.nextDouble());
+            setP(UserDebt.nextDouble());
             studentInterest();
         }
         catch(InputMismatchException ex) {
             //If user does not input an integer it will set the debt to 80k
             System.out.println("Setting Student debt Debt to $80,000");
-            setPV(80000);
+            setP(80000);
             studentInterest();
         }
     }
@@ -104,7 +104,7 @@ public class Main {
                 System.out.println();
                 for (int x=5;x <= 50;x+=5) {
                     setT(x);
-                    System.out.println("When you take "+x+" years "+"The total interest paid will be: $"+decimalFormat.format((studentPayments()*12*getOT())-getPV()));
+                    System.out.println("When you take "+x+" years "+"The total interest paid will be: $"+decimalFormat.format((studentPayments()*12*getOT())-getP()));
                 }
                 //will calculate monthly/yearly payments,Total interest cost, total cost, total interest cost every 5 years from 5 to 50
                 //Used 50 years as max because if you graduate college at 21 then you will be 71 when you are debt free
@@ -137,7 +137,7 @@ public class Main {
         }
     }
     public static Double studentPayments() {
-        return getPV()*((getI()*Math.pow((1+getI()),getT()))/(Math.pow((1+getI()),getT())-1));
+        return getP()*((getI()*Math.pow((1+getI()),getT()))/(Math.pow((1+getI()),getT())-1));
         //The PMT formula - basically modified Present Value Annuity Formula(PVA) A.K.A the formula that determines loan costs
         // Principle is times by [Interest is times by (interest +1) raised to the power of years, divided by (interest +1) raised to the power of (time-1)]
         // Your monthly payments will be lowered on a reverse inverse exponential curve based on years taken to pay off
@@ -151,7 +151,7 @@ public class Main {
         System.out.print("Your monthly payments will be: $"+decimalFormat.format(studentPayments()));
         System.out.print("\nYour yearly payments will be: $"+decimalFormat.format(studentPayments()*12));
         System.out.print("\nTotal amount paid will be: $"+decimalFormat.format(studentPayments()*12*getOT()));
-        System.out.print("\nTotal Interest paid will be: $"+decimalFormat.format((studentPayments()*12*getOT())-getPV()));
+        System.out.print("\nTotal Interest paid will be: $"+decimalFormat.format((studentPayments()*12*getOT())-getP()));
         seeYears();
     }
 }
