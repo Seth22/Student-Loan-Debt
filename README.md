@@ -29,4 +29,14 @@
 
 4. Help people understand loan debt and how interest/time/total debt taken out will effect their future life; What ever your yearly payment is view that as nerfing your yearly income every year you owe that debt
 
+## Calculate college cost in a spreadsheet!
+
+**If this is usefully to you please checkout the Spreadsheet templates for calculating college cost with formulas already built in!**
+
+**Under ["College Cost template.ODS"](https://github.com/Seth22/Student-Loan-Debt/blob/main/College%20cost%20template.ods) import it to sheets or excel**
+
+*May work better in google sheets, I created it in Google sheets to calculate my own college cost*
+
+*Hopefully it will help you please enjoy :D -Seth/SJB* 
+
 *Please note currently only works in terminal with an IDE but I may create a GUI executable in the future*
