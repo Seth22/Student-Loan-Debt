@@ -19,6 +19,8 @@
 
 5.Will also output how the years taken to pay off the loans will effect the above values in increments of 5 starting at 5 and going to 65 
 
+*Please note currently only works in terminal with an IDE but I may create a GUI executable in the future*
+
 ## Goals
 
 1.Show how time will exponentially increase cost of a loan
@@ -38,5 +40,3 @@
 *May work better in google sheets, I created it in Google sheets to calculate my own college cost*
 
 *Hopefully it will help you please enjoy :D -Seth/SJB* 
-
-*Please note currently only works in terminal with an IDE but I may create a GUI executable in the future*
