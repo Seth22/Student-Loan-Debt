@@ -2,12 +2,10 @@
 //Author: Seth/Sheriff John Brown
 import java.util.Scanner;
 import java.util.InputMismatchException;
-
-
 public class Main {
     private static double PV; private static double I; private static double T; private static double OT;
-    static void setP(double newpv) {
-        PV = newpv;
+    static void setP(double newP) {
+        PV = newP;
     }
     static double getP() {
         return PV;
@@ -102,6 +100,7 @@ public class Main {
                     setT(x);
                     System.out.println("When you take "+x+" years "+"The total interest paid will be: $"+StringFormat.decimalformat((studentPayments()*12*getOT())-getP()));
                 }
+                //Loops will print out student loan values then add 5 to the years(SetT()) and repeat 10 timesw
                 //will calculate monthly/yearly payments,Total interest cost, total cost, total interest cost every 5 years from 5 to 50
                 //Used 50 years as max because if you graduate college at 21 then you will be 71 when you are debt free
                 anotherOne();
