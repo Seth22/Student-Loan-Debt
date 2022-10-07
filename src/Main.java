@@ -2,7 +2,7 @@
 //Author: Seth/Sheriff John Brown
 import java.util.Scanner;
 import java.util.InputMismatchException;
-import java.text.DecimalFormat;
+
 
 public class Main {
     private static double PV; private static double I; private static double T; private static double OT;
@@ -83,28 +83,24 @@ public class Main {
             boolean userInput = input.nextBoolean();
             if (userInput) {
                 System.out.println();
-                DecimalFormat decimalFormat = new DecimalFormat("#.##");
-                decimalFormat.setGroupingUsed(true);
-                decimalFormat.setGroupingSize(3);
-                //Formats the outputted numbers to have commas and go the second decimal place(money format)
                 for (int x=5;x <= 50;x+=5) {
                     setT(x);
-                    System.out.println("When you take "+x+" years "+"Your monthly payments will be: $"+decimalFormat.format(studentPayments()));
+                    System.out.println("When you take "+x+" years "+"Your monthly payments will be: $"+StringFormat.decimalformat(studentPayments()));
                 }
                 System.out.println();
                 for (int x=5;x <= 50;x+=5) {
                     setT(x);
-                    System.out.println("When you take "+x+" years "+"Your yearly payments will be: $"+decimalFormat.format(studentPayments()*12));
+                    System.out.println("When you take "+x+" years "+"Your yearly payments will be: $"+StringFormat.decimalformat(studentPayments()*12));
                 }
                 System.out.println();
                 for (int x=5;x <= 50;x+=5) {
                     setT(x);
-                    System.out.println("When you take "+x+" years "+"The total paid will be: $"+decimalFormat.format(studentPayments()*12*getOT()));
+                    System.out.println("When you take "+x+" years "+"The total paid will be: $"+StringFormat.decimalformat(studentPayments()*12*getOT()));
                 }
                 System.out.println();
                 for (int x=5;x <= 50;x+=5) {
                     setT(x);
-                    System.out.println("When you take "+x+" years "+"The total interest paid will be: $"+decimalFormat.format((studentPayments()*12*getOT())-getP()));
+                    System.out.println("When you take "+x+" years "+"The total interest paid will be: $"+StringFormat.decimalformat((studentPayments()*12*getOT())-getP()));
                 }
                 //will calculate monthly/yearly payments,Total interest cost, total cost, total interest cost every 5 years from 5 to 50
                 //Used 50 years as max because if you graduate college at 21 then you will be 71 when you are debt free
@@ -144,14 +140,11 @@ public class Main {
         // Total cost/interest will be exponential increased based on the time to take off
     }
     public static void printStudent() {
-        DecimalFormat decimalFormat = new DecimalFormat("#.##");
-        decimalFormat.setGroupingUsed(true);
-        decimalFormat.setGroupingSize(3);
         //Formats the outputted numbers to have commas and go the second decimal place(money format)
-        System.out.print("Your monthly payments will be: $"+decimalFormat.format(studentPayments()));
-        System.out.print("\nYour yearly payments will be: $"+decimalFormat.format(studentPayments()*12));
-        System.out.print("\nTotal amount paid will be: $"+decimalFormat.format(studentPayments()*12*getOT()));
-        System.out.print("\nTotal Interest paid will be: $"+decimalFormat.format((studentPayments()*12*getOT())-getP()));
+        System.out.print("Your monthly payments will be: $"+StringFormat.decimalformat(studentPayments()));
+        System.out.print("\nYour yearly payments will be: $"+StringFormat.decimalformat(studentPayments()*12));
+        System.out.print("\nTotal amount paid will be: $"+StringFormat.decimalformat(studentPayments()*12*getOT()));
+        System.out.print("\nTotal Interest paid will be: $"+StringFormat.decimalformat((studentPayments()*12*getOT())-getP()));
         seeYears();
     }
 }
