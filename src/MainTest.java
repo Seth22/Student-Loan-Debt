@@ -1,12 +1,8 @@
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.*;
-
+import static org.junit.jupiter.api.Assertions.*;
 import java.text.DecimalFormat;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class OutputNumberTest {
-
     @Test
     @DisplayName("Test 1")
     void Test1() {
@@ -18,7 +14,7 @@ class OutputNumberTest {
         assertEquals("329.7",StringFormat.decimalformat(Main.studentPayments()));
         assertEquals("29,128.41",StringFormat.decimalformat((Main.studentPayments()*12*Main.getOT())-Main.getP()));
         assertEquals("79,128.41",StringFormat.decimalformat(Main.studentPayments()*12*Main.getOT()));
-        System.out.println("Test 1 passed!");
+        System.out.println("Test 1 passed! Results match those from Calculator.net!");
     }
     @Test
     @DisplayName("Test 2")
@@ -31,9 +27,8 @@ class OutputNumberTest {
         assertEquals("420.23",StringFormat.decimalformat(Main.studentPayments()));
         assertEquals("165,634.19",StringFormat.decimalformat((Main.studentPayments()*12*Main.getOT())-Main.getP()));
         assertEquals("226,926.19",StringFormat.decimalformat(Main.studentPayments()*12*Main.getOT()));
-        System.out.println("Test 2 passed!");
+        System.out.println("Test 2 passed! Results match those from Google Sheets!");
     }
-
     @Test
     @DisplayName("Test 3: Decimal format")
     void Test3() {
@@ -42,8 +37,6 @@ class OutputNumberTest {
         decimalFormat.setGroupingSize(3);
 
         assertEquals (decimalFormat.format(Main.studentPayments()),StringFormat.decimalformat(Main.studentPayments()));
-        System.out.println("Test 3 passed!");
+        System.out.println("Test 3 passed! String format class works!");
     }
-
-
 }
